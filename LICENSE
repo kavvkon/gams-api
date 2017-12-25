@@ -1,0 +1,5 @@
+GAMS Free APIs
+1. The GAMS free APIs provide a developer with programmatic access to certain parts of THE SOFTWARE. It includes APIs for different programming languages and any accompanying or related documentation, or source code made available by GAMS.
+2. The GAMS free APIs are copyrighted by GAMS Development Corp, available at no charge, and do not require the presence of a license file.
+3. Permission to use, copy, modify, and/or distribute the GAMS free APIs for any purpose with or without fee is hereby granted, provided that the copyright notice above and this permission notice appear in all copies.
+4. THE GAMS FREE APIS ARE PROVIDED "AS IS" AND GAMS DISCLAIMS ALL WARRANTIES WITH REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS. IN NO EVENT SHALL GAMS BE LIABLE FOR ANY SPECIAL, DIRECT, INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS, WHETHER IN AN ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THE GAMS FREE APIS.
