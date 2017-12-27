@@ -1,5 +1,0 @@
-include *.rst *.txt LICENSE .travis.yml
-recursive-include gdxcc *.py
-recursive-include gdxcc *.c
-recursive-include gdxcc *.h
-recursive-include gdxcc *.i

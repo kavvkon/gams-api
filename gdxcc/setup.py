@@ -1,4 +1,4 @@
-from setuptools import setup, Extension
+from setuptools import setup, Extension, find_packages
 import codecs
 import sys
 import os
@@ -35,10 +35,11 @@ gdxcc_module = Extension('_gdxcc',
                         )
 
 setup (name = 'gdxcc',
-       description='Python API to access gdx files',
+       description='Python library to access and modify gdx files',
        version = '7-2492',
        ext_modules = [gdxcc_module],
-       py_modules= ["gdxcc"],
+       packages=find_packages(),
+       include_package_data=True,
        author='GAMS Development Corp.',
        license=LICENSE,
        maintainer='kavvkon',
