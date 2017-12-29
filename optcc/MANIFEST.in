@@ -1,0 +1,3 @@
+include *.rst *.txt LICENSE .travis.yml
+graft optcc
+global‐exclude *.py[co] __pycache__
