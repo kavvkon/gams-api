@@ -6,9 +6,9 @@ environment:
 
 build_script:
   - pip install cibuildwheel==0.6.0
-  - cibuildwheel gdxcc --output-dir wheelhouse
-  - cibuildwheel gamsxcc --output-dir wheelhouse
-  - cibuildwheel optcc --output-dir wheelhouse
+  - cibuildwheel ./gdxcc --output-dir wheelhouse
+  - cibuildwheel ./gamsxcc --output-dir wheelhouse
+  - cibuildwheel ./optcc --output-dir wheelhouse
   - ps: >-
       if ($env:APPVEYOR_REPO_TAG -eq "true") {
         python -m pip install twine
