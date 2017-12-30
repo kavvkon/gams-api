@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 from setuptools import setup, Extension, find_packages
 import codecs
 import sys
