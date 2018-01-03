@@ -1,9 +1,16 @@
 matrix:
   include:
     - sudo: required
+      language: python
       services:
         - docker
     - os: osx
+      language: generic
+      before_install:
+        - brew update
+        - brew install python
+        - virtualenv env -p python
+        - source env/bin/activate
 
 env:
   global:
