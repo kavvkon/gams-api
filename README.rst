@@ -1,5 +1,10 @@
 GAMS Python API
 ===============
+.. image:: https://travis-ci.org/kavvkon/gams-api.svg
+    :target: https://travis-ci.org/kavvkon/gams-api
+
+.. image:: https://ci.appveyor.com/api/projects/status/jxyjr1f6p8501nwm?svg=true
+    :target: https://ci.appveyor.com/project/kavvkon/gams-api
 
 This repository hosts various GAMS' Python libraries which are used to access and modify the .gdx data files, and execute GAMS within Python. The main purpose is to compile them, package them and distribute them via Pypi so that it can be installable via pip and used as a dependecy in other packages.
 
@@ -16,6 +21,9 @@ As a first step the directories ``gdxcc``, ``optcc`` and ``gamsxcc`` collect the
 GAMS includes also the compiled C extensions (.so) but they are dependent on the platform and the python version and not include here.
 The setup.py file has been modified to use the setuptools package which allows the distribution of binary wheels (bdist) for different python versions and platforms.
 The source (sdist) is uploaded in Pypi and should work with all platforms and python versions.
+
+TravisCI and Appveyor are used to compile the packages and create their python 'wheels' in various platforms (windows, linux, and macos) and python versions (2.7, 3.4, 3.6).
+ The package`cibuildwheel`_<https://github.com/joerick/cibuildwheel> is used to automate this task.
 
 Install
 -------
