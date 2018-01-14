@@ -14,11 +14,26 @@ matrix:
 env:
   global:
     - CIBW_SKIP='cp33-* cp35-*'
+    - CIBW_TEST_REQUIRES='pytest'
+    - CIBW_TEST_COMMAND='cd -;pytest -v ./tests/'
     - TWINE_USERNAME=kavvkon
       # Note: TWINE_PASSWORD is set in Travis settings
+    - GAMS=24.9
+    - GAMS_URL=https://d37drm4t2jghv5.cloudfront.net/distributions/24.9.2/linux/linux_x64_64_sfx.exe
+
+install:
+  # Install GAMS
+  - wget -N $GAMS_URL -O gams.zip
+  - unzip -qu gams.zip -d $HOME
+  - ln -s $HOME/gams${GAMS}_linux_x64_64_sfx $HOME/gams
+  - export PATH="$HOME/gams:$PATH"
+  - cd $HOME/gams
+  - gamsinst -a
+  - cd -
+
 
 script:
-  - pip install cibuildwheel==0.6.0
+  - pip install cibuildwheel==0.7.0
   - cibuildwheel ./gdxcc --output-dir wheelhouse
   - cibuildwheel ./gamsxcc --output-dir wheelhouse
   - cibuildwheel ./optcc --output-dir wheelhouse
