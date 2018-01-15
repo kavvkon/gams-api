@@ -1,11 +1,10 @@
 from __future__ import print_function
 from gdxcc import *
-import sys
 import os
 
 def test_write_gdx():
 
-    GAMS_DIR = os.path.join('/host',os.environ['HOME'], 'gams')
+    GAMS_DIR = '/host/gams' #os.path.join('/host',os.environ['HOME'], 'gams')
     print("using GAMS system directory:", GAMS_DIR)
 
     gdxHandle = new_gdxHandle_tp()
