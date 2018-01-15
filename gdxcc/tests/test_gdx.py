@@ -3,8 +3,8 @@ from gdxcc import *
 import os
 
 def test_write_gdx():
-
-    GAMS_DIR = '/host/gams' #os.path.join('/host',os.environ['HOME'], 'gams')
+    print(os.environ)
+    GAMS_DIR = '../gams' #os.path.join('/host',os.environ['HOME'], 'gams')
     print("using GAMS system directory:", GAMS_DIR)
 
     gdxHandle = new_gdxHandle_tp()
