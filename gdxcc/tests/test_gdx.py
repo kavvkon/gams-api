@@ -1,18 +1,11 @@
 from __future__ import print_function
 from gdxcc import *
 import os
-import shutil
+from shutil import which
 
 def test_write_gdx():
     print(os.environ)
-    print(os.listdir('/host'))
-    tree = [ ]
-    for root, dirs, files in os.walk('/host'):
-        level = root.replace('/host', '').count(os.sep)
-        indent = ' ' * 2 * (level)
-        tree.append('{}{}/'.format(indent, os.path.basename(root)))
-    print(tree)
-    GAMS_DIR = '../gams' # os.environ['GAMS_DIR']
+    GAMS_DIR = os.path.dirname(which('gams')) # os.environ['GAMS_DIR']
     print("using GAMS system directory:", GAMS_DIR)
     ## START TESTS
     gdxHandle = new_gdxHandle_tp()

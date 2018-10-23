@@ -26,7 +26,6 @@ install:
   - wget -N $GAMS_URL -O gams.zip
   - unzip -qu gams.zip -d $HOME
   - ln -s $HOME/gams${GAMS}_linux_x64_64_sfx ${TRAVIS_BUILD_DIR}/gams #ln to root
-  - ln -s $HOME/gams${GAMS}_linux_x64_64_sfx ${TRAVIS_BUILD_DIR}/gdxcc/gams #ln to root
   - export PATH="$HOME/gams:$PATH"
   # - cd $HOME/gams
   # - gamsinst -a
