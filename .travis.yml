@@ -23,6 +23,6 @@ script:
   - cibuildwheel ./optcc --output-dir wheelhouse
   - |
     if [[ $TRAVIS_TAG ]]; then
-      python -m pip install twine
+      $PIP install twine
       python -m twine upload wheelhouse/*.whl
     fi
