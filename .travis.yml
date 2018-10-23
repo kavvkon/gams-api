@@ -7,12 +7,12 @@ matrix:
         - docker
       env:
       - PIP=pip
-      - CIBW_ENVIRONMENT='GAMS_DIR=`cat /host/GAMS_DIR`'
+      - CIBW_ENVIRONMENT='GAMS_DIR=/host/gams'
     - os: osx
       language: generic
       env:
       - PIP=pip2
-      - CIBW_ENVIRONMENT='GAMS_DIR=`cat /GAMS_DIR`'
+      - CIBW_ENVIRONMENT='GAMS_DIR=/gams'
 
 env:
   global:
@@ -28,7 +28,7 @@ install:
   # Install GAMS
   - wget -N $GAMS_URL -O gams.zip
   - unzip -qu gams.zip -d $HOME
-  - ln -s $HOME/gams${GAMS}_linux_x64_64_sfx ${TRAVIS_BUILD_DIR}/gams #ln to root
+  - sudo ln -s $HOME/gams${GAMS}_linux_x64_64_sfx /gams #ln to root
   - export PATH="$HOME/gams:$PATH"
   # - cd $HOME/gams
   # - gamsinst -a
@@ -37,7 +37,6 @@ install:
 
 script:
   - $PIP install cibuildwheel==0.10.0
-  - echo -n $TRAVIS_BUILD_DIR/gams > /GAMS_DIR
   - cibuildwheel ./gdxcc --output-dir wheelhouse
   - cibuildwheel ./gamsxcc --output-dir wheelhouse
   - cibuildwheel ./optcc --output-dir wheelhouse
