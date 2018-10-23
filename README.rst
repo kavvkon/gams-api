@@ -1,9 +1,9 @@
 GAMS Python API
 ===============
-.. image:: https://travis-ci.org/kavvkon/gams-api.svg
+.. image:: https://travis-ci.org/kavvkon/gams-api.svg?branch=master
     :target: https://travis-ci.org/kavvkon/gams-api
 
-.. image:: https://ci.appveyor.com/api/projects/status/jxyjr1f6p8501nwm?svg=true
+.. image:: https://ci.appveyor.com/api/projects/status/jxyjr1f6p8501nwm?svg=true&branch=master
     :target: https://ci.appveyor.com/project/kavvkon/gams-api
 
 This repository hosts various GAMS' Python libraries which are used to access and modify the .gdx data files, and execute GAMS within Python. The main purpose is to compile them, package them and distribute them via Pypi so that it can be installable via pip and used as a dependecy in other packages.
