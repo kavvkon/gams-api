@@ -15,7 +15,7 @@ env:
     - CIBW_SKIP='cp35-*'
     - CIBW_TEST_REQUIRES='pytest'
     - CIBW_TEST_COMMAND='pytest -v {project}/tests/'
-    - CIBW_ENVIRONMENT='GAMS_DIR='$TRAVIS_BUILD_DIR'/gams'
+    - CIBW_ENVIRONMENT='GAMS_DIR=/host/gams'
     - TWINE_USERNAME=kavvkon
       # Note: TWINE_PASSWORD is set in Travis settings
     - GAMS=24.9

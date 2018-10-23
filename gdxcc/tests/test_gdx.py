@@ -4,7 +4,7 @@ import os
 
 def test_write_gdx():
     print(os.environ)
-    GAMS_DIR = os.path.join('/host',os.environ['GAMS_DIR'])
+    GAMS_DIR = os.path.join(os.environ['GAMS_DIR'])
     print("using GAMS system directory:", GAMS_DIR)
 
     gdxHandle = new_gdxHandle_tp()
