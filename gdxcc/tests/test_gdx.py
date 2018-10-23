@@ -11,7 +11,8 @@ def test_write_gdx():
         level = root.replace('/host', '').count(os.sep)
         indent = ' ' * 2 * (level)
         tree.append('{}{}/'.format(indent, os.path.basename(root)))
-    GAMS_DIR = os.path.join(os.environ['GAMS_DIR'])
+    print(tree)
+    GAMS_DIR = '../gams' # os.environ['GAMS_DIR']
     print("using GAMS system directory:", GAMS_DIR)
     ## START TESTS
     gdxHandle = new_gdxHandle_tp()

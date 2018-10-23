@@ -15,7 +15,7 @@ env:
     - CIBW_SKIP='cp35-*'
     - CIBW_TEST_REQUIRES='pytest'
     - CIBW_TEST_COMMAND='pytest -v {project}/tests/'
-    - CIBW_ENVIRONMENT='GAMS_DIR=/host$(echo $TRAVIS_BUILD_DIR)/gams'
+    - CIBW_ENVIRONMENT='GAMS_DIR=/host$TRAVIS_BUILD_DIR/gams'
     - TWINE_USERNAME=kavvkon
       # Note: TWINE_PASSWORD is set in Travis settings
     - GAMS=24.9
@@ -26,6 +26,7 @@ install:
   - wget -N $GAMS_URL -O gams.zip
   - unzip -qu gams.zip -d $HOME
   - ln -s $HOME/gams${GAMS}_linux_x64_64_sfx ${TRAVIS_BUILD_DIR}/gams #ln to root
+  - ln -s $HOME/gams${GAMS}_linux_x64_64_sfx ${TRAVIS_BUILD_DIR}/gdxcc/gams #ln to root
   - export PATH="$HOME/gams:$PATH"
   # - cd $HOME/gams
   # - gamsinst -a
