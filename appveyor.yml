@@ -1,6 +1,9 @@
 environment:
   global:
     CIBW_SKIP: cp35-*
+    CIBW_TEST_REQUIRES: 'pytest'
+    CIBW_TEST_COMMAND: 'pytest -v {project}/tests/'
+    CIBW_ENVIRONMENT: 'GAMS_DIR=%APPVEYOR_BUILD_FOLDER%/gams'
     TWINE_USERNAME: kavvkon
     # Note: TWINE_PASSWORD is set in Appveyor settings
 

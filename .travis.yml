@@ -5,17 +5,20 @@ matrix:
     - sudo: required
       services:
         - docker
-      env: PIP=pip
+      env:
+      - PIP=pip
+      - CIBW_ENVIRONMENT='GAMS_DIR=`cat /host/GAMS_DIR`'
     - os: osx
       language: generic
-      env: PIP=pip2
+      env:
+      - PIP=pip2
+      - CIBW_ENVIRONMENT='GAMS_DIR=`cat /GAMS_DIR`'
 
 env:
   global:
     - CIBW_SKIP='cp35-*'
     - CIBW_TEST_REQUIRES='pytest'
     - CIBW_TEST_COMMAND='pytest -v {project}/tests/'
-    - CIBW_ENVIRONMENT='GAMS_DIR=/host$TRAVIS_BUILD_DIR/gams'
     - TWINE_USERNAME=kavvkon
       # Note: TWINE_PASSWORD is set in Travis settings
     - GAMS=24.9
@@ -34,6 +37,7 @@ install:
 
 script:
   - $PIP install cibuildwheel==0.10.0
+  - echo -n $TRAVIS_BUILD_DIR/gams > /GAMS_DIR
   - cibuildwheel ./gdxcc --output-dir wheelhouse
   - cibuildwheel ./gamsxcc --output-dir wheelhouse
   - cibuildwheel ./optcc --output-dir wheelhouse

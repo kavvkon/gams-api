@@ -1,11 +1,10 @@
 from __future__ import print_function
 from gdxcc import *
 import os
-from shutil import which
 
 def test_write_gdx():
     print(os.environ)
-    GAMS_DIR = os.path.dirname(which('gams')) # os.environ['GAMS_DIR']
+    GAMS_DIR = os.environ['GAMS_DIR']
     print("using GAMS system directory:", GAMS_DIR)
     ## START TESTS
     gdxHandle = new_gdxHandle_tp()
