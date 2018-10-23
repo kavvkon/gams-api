@@ -1,12 +1,16 @@
 from __future__ import print_function
 from gdxcc import *
 import os
+import shutil
 
 def test_write_gdx():
     print(os.environ)
+    print(os.listdir('/host'))
+    for root,dirs,files in os.walk('/host'):
+        print(dirs)
     GAMS_DIR = os.path.join(os.environ['GAMS_DIR'])
     print("using GAMS system directory:", GAMS_DIR)
-
+    ## START TESTS
     gdxHandle = new_gdxHandle_tp()
     rc = gdxCreateD(gdxHandle, GAMS_DIR, GMS_SSSIZE)
     assert rc[0], rc[1]
