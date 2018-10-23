@@ -6,8 +6,11 @@ import shutil
 def test_write_gdx():
     print(os.environ)
     print(os.listdir('/host'))
-    for root,dirs,files in os.walk('/host'):
-        print(dirs)
+    tree = [ ]
+    for root, dirs, files in os.walk('/host'):
+        level = root.replace('/host', '').count(os.sep)
+        indent = ' ' * 2 * (level)
+        tree.append('{}{}/'.format(indent, os.path.basename(root)))
     GAMS_DIR = os.path.join(os.environ['GAMS_DIR'])
     print("using GAMS system directory:", GAMS_DIR)
     ## START TESTS
