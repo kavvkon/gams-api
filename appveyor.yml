@@ -3,7 +3,7 @@ environment:
     CIBW_SKIP: cp35-*
     CIBW_TEST_REQUIRES: 'pytest'
     CIBW_TEST_COMMAND: 'pytest -v {project}/tests/'
-    CIBW_ENVIRONMENT: 'GAMS_DIR=C:\gams\win64\24.9'
+    CIBW_ENVIRONMENT: 'GAMS_DIR=C:/gams/win64/24.9'
     TWINE_USERNAME: kavvkon
     # Note: TWINE_PASSWORD is set in Appveyor settings
     GAMS_URL: https://d37drm4t2jghv5.cloudfront.net/distributions/24.9.2/windows/windows_x64_64.exe

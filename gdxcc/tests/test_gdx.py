@@ -3,7 +3,7 @@ from gdxcc import *
 import os
 
 def test_write_gdx():
-    GAMS_DIR = os.environ['GAMS_DIR']
+    GAMS_DIR = os.path.normpath(os.environ['GAMS_DIR'])
     print("using GAMS system directory:", GAMS_DIR)
     ## START TESTS
     gdxHandle = new_gdxHandle_tp()
