@@ -29,7 +29,8 @@ install:
       wget -N $GAMS_URL -O gams.zip;
       unzip -qu gams.zip -d $HOME;
       ln -s $HOME/gams${GAMS}_linux_x64_64_sfx ${TRAVIS_BUILD_DIR}/gams;
-      ls ${TRAVIS_BUILD_DIR}/gams
+      ls ${TRAVIS_BUILD_DIR}/gams;
+      locate libgdxdclib64.so;
     fi
   - if [ "$TRAVIS_OS_NAME" == "osx" ]; then
       wget -N $GAMS_URL -O gams.dmg;
