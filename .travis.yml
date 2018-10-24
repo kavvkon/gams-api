@@ -29,12 +29,13 @@ install:
       wget -N $GAMS_URL -O gams.zip;
       unzip -qu gams.zip -d $HOME;
       ln -s $HOME/gams${GAMS}_linux_x64_64_sfx ${TRAVIS_BUILD_DIR}/gams;
+      ls ${TRAVIS_BUILD_DIR}/gams
     fi
   - if [ "$TRAVIS_OS_NAME" == "osx" ]; then
       wget -N $GAMS_URL -O gams.dmg;
       hdiutil attach gams.dmg;
       ls /Volumes;
-      cp -r /Volumes/gams*/* ${TRAVIS_BUILD_DIR}/gams;
+      cp -r /Volumes/GAMS*/* ${TRAVIS_BUILD_DIR}/gams;
       hdiutil detach -force /Volumes/gams;
     fi
 
