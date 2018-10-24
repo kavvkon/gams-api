@@ -5,6 +5,10 @@ import os
 def test_write_gdx():
     GAMS_DIR = os.path.normpath(os.environ['GAMS_DIR'])
     print("using GAMS system directory:", GAMS_DIR)
+    print(find_file('libgdxdclib64.dylib',root_path()))
+    print(find_file('dxdclib.dll',root_path()))
+    print(find_file('libgdxdclib64.so',root_path()))
+
     ## START TESTS
     gdxHandle = new_gdxHandle_tp()
     rc = gdxCreateD(gdxHandle, GAMS_DIR, GMS_SSSIZE)
@@ -31,3 +35,11 @@ def test_write_gdx():
     assert gdxFree(gdxHandle)
 
     print("All done xp_example1")
+
+def find_file(name, path):
+    for root, dirs, files in os.walk(path):
+        if name in files:
+            return os.path.join(root, name)
+
+def root_path():
+    return os.path.abspath(os.sep)
