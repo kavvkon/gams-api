@@ -12,7 +12,7 @@ environment:
 install:
   - ps: Invoke-WebRequest $env:GAMS_URL -OutFile gams.zip
   - 7z x -y "gams.zip" -o"C:\gams"
-  - set CIBW_ENVIRONMENT="GAMS_DIR=C:\gams"
+  - set CIBW_ENVIRONMENT='GAMS_DIR=C:\gams'
 
 
 build_script:

@@ -26,16 +26,16 @@ env:
 install:
   # Install GAMS
   - if [ "$TRAVIS_OS_NAME" == "linux" ]; then
-      wget -N $GAMS_URL -O gams.zip
-      unzip -qu gams.zip -d $HOME
-      ln -s $HOME/gams${GAMS}_linux_x64_64_sfx ${TRAVIS_BUILD_DIR}/gams
+      wget -N $GAMS_URL -O gams.zip;
+      unzip -qu gams.zip -d $HOME;
+      ln -s $HOME/gams${GAMS}_linux_x64_64_sfx ${TRAVIS_BUILD_DIR}/gams;
     fi
   - if [ "$TRAVIS_OS_NAME" == "osx" ]; then
-      wget -N $GAMS_URL -O gams.dmg
-      hdiutil attach gams.dmg
-      ls /Volumes
-      cp -r /Volumes/gams*/* ${TRAVIS_BUILD_DIR}/gams
-      hdiutil detach -force /Volumes/gams
+      wget -N $GAMS_URL -O gams.dmg;
+      hdiutil attach gams.dmg;
+      ls /Volumes;
+      cp -r /Volumes/gams*/* ${TRAVIS_BUILD_DIR}/gams;
+      hdiutil detach -force /Volumes/gams;
     fi
 
   - export PATH="$HOME/gams:$PATH"
@@ -45,10 +45,10 @@ install:
 
 script:
   - if [ "$TRAVIS_OS_NAME" == "linux" ]; then
-        export CIBW_ENVIRONMENT="GAMS_DIR=/host$TRAVIS_BUILD_DIR/gams"
+        export CIBW_ENVIRONMENT="GAMS_DIR=/host$TRAVIS_BUILD_DIR/gams";
     fi
   - if [ "$TRAVIS_OS_NAME" == "osx" ]; then
-        export CIBW_ENVIRONMENT="GAMS_DIR=$TRAVIS_BUILD_DIR/gams"
+        export CIBW_ENVIRONMENT="GAMS_DIR=$TRAVIS_BUILD_DIR/gams";
     fi
   - $PIP install cibuildwheel==0.10.0
   - cibuildwheel ./gdxcc --output-dir wheelhouse
