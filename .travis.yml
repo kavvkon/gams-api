@@ -7,12 +7,12 @@ matrix:
         - docker
       env:
       - PIP=pip
-      - CIBW_ENVIRONMENT='GAMS_DIR=/host/gams'
+      - GAMS_URL=https://d37drm4t2jghv5.cloudfront.net/distributions/24.9.2/linux/linux_x64_64_sfx.exe
     - os: osx
       language: generic
       env:
       - PIP=pip2
-      - CIBW_ENVIRONMENT='GAMS_DIR=/gams'
+      - GAMS_URL=https://d37drm4t2jghv5.cloudfront.net/distributions/24.9.2/macosx/GAMS24.9.dmg
 
 env:
   global:
@@ -22,13 +22,22 @@ env:
     - TWINE_USERNAME=kavvkon
       # Note: TWINE_PASSWORD is set in Travis settings
     - GAMS=24.9
-    - GAMS_URL=https://d37drm4t2jghv5.cloudfront.net/distributions/24.9.2/linux/linux_x64_64_sfx.exe
 
 install:
   # Install GAMS
-  - wget -N $GAMS_URL -O gams.zip
-  - unzip -qu gams.zip -d $HOME
-  - sudo ln -s $HOME/gams${GAMS}_linux_x64_64_sfx /gams #ln to root
+  - if [ "$TRAVIS_OS_NAME" == "linux" ]; then
+      wget -N $GAMS_URL -O gams.zip
+      unzip -qu gams.zip -d $HOME
+      ln -s $HOME/gams${GAMS}_linux_x64_64_sfx ${TRAVIS_BUILD_DIR}/gams #ln to root
+    fi
+  - if [ "$TRAVIS_OS_NAME" == "osx" ]; then
+      wget -N $GAMS_URL -O gams.dmg
+      hdiutil attach gams.dmg
+      ls /Volumes
+      cp -r /Volumes/gams*/* ${TRAVIS_BUILD_DIR}/gams
+      hdiutil detach -force /Volumes/gams
+    fi
+
   - export PATH="$HOME/gams:$PATH"
   # - cd $HOME/gams
   # - gamsinst -a
@@ -36,6 +45,12 @@ install:
 
 
 script:
+  - if [ "$TRAVIS_OS_NAME" == "linux" ]; then
+        export CIBW_ENVIRONMENT="GAMS_DIR=/host$TRAVIS_BUILD_DIR/gams"
+    fi
+  - if [ "$TRAVIS_OS_NAME" == "osx" ]; then
+        export CIBW_ENVIRONMENT="GAMS_DIR=$TRAVIS_BUILD_DIR/gams"
+    fi
   - $PIP install cibuildwheel==0.10.0
   - cibuildwheel ./gdxcc --output-dir wheelhouse
   - cibuildwheel ./gamsxcc --output-dir wheelhouse

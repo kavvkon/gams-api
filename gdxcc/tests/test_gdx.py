@@ -3,7 +3,6 @@ from gdxcc import *
 import os
 
 def test_write_gdx():
-    print(os.environ)
     GAMS_DIR = os.environ['GAMS_DIR']
     print("using GAMS system directory:", GAMS_DIR)
     ## START TESTS
