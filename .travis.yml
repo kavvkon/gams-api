@@ -7,12 +7,12 @@ matrix:
         - docker
       env:
       - PIP=pip
-      - GAMS_URL=https://d37drm4t2jghv5.cloudfront.net/distributions/24.9.2/linux/linux_x64_64_sfx.exe
+      - GAMS_URL="https://d37drm4t2jghv5.cloudfront.net/distributions/24.9.2/linux/linux_x64_64_sfx.exe"
     - os: osx
       language: generic
       env:
       - PIP=pip2
-      - GAMS_URL=https://d37drm4t2jghv5.cloudfront.net/distributions/24.9.2/macosx/GAMS24.9.dmg
+      - GAMS_URL="https://d37drm4t2jghv5.cloudfront.net/distributions/24.9.2/macosx/GAMS24.9.dmg"
 
 env:
   global:
@@ -28,7 +28,7 @@ install:
   - if [ "$TRAVIS_OS_NAME" == "linux" ]; then
       wget -N $GAMS_URL -O gams.zip
       unzip -qu gams.zip -d $HOME
-      ln -s $HOME/gams${GAMS}_linux_x64_64_sfx ${TRAVIS_BUILD_DIR}/gams #ln to root
+      ln -s $HOME/gams${GAMS}_linux_x64_64_sfx ${TRAVIS_BUILD_DIR}/gams
     fi
   - if [ "$TRAVIS_OS_NAME" == "osx" ]; then
       wget -N $GAMS_URL -O gams.dmg
@@ -42,7 +42,6 @@ install:
   # - cd $HOME/gams
   # - gamsinst -a
   # - cd -
-
 
 script:
   - if [ "$TRAVIS_OS_NAME" == "linux" ]; then
