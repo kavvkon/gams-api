@@ -1,12 +1,12 @@
 GAMS Python API
 ===============
-.. image:: https://travis-ci.org/kavvkon/gams-api.svg?branch=master
-    :target: https://travis-ci.org/kavvkon/gams-api
 
-.. image:: https://ci.appveyor.com/api/projects/status/jxyjr1f6p8501nwm?svg=true&branch=master
-    :target: https://ci.appveyor.com/project/kavvkon/gams-api
+.. image:: https://dev.azure.com/kavvkon/kavvkon/_apis/build/status/kavvkon.gams-api?branchName=master
+    :target: https://dev.azure.com/kavvkon/kavvkon/_build/latest?definitionId=1&branchName=master
 
-This repository hosts various GAMS' Python libraries which are used to access and modify the .gdx data files, and execute GAMS within Python. The main purpose is to compile them, package them and distribute them via Pypi so that it can be installable via pip and used as a dependecy in other packages.
+This repository hosts various GAMS' Python libraries which are used to access and modify the .gdx data files, and execute GAMS within Python. The main purpose is to compile them, package them and distribute them via PyPI so that it can be installable via pip and used as a dependecy in other packages.
+
+**Update**: Python 3.8 wheels are included for all platforms. All builds have been moved to azure pipelines as it allows easier cross-platform maintainance.
 
 Background
 ----------
@@ -22,7 +22,23 @@ GAMS includes also the compiled C extensions (.so) but they are dependent on the
 The setup.py file has been modified to use the setuptools package which allows the distribution of binary wheels (bdist) for different python versions and platforms.
 The source (sdist) is uploaded in Pypi and should work with all platforms and python versions.
 
-TravisCI and Appveyor are used to compile the packages and create their python 'wheels' in various platforms (windows, linux, and macos) and python versions (2.7, 3.4, 3.6). The package `cibuildwheel <https://github.com/joerick/cibuildwheel>`_ is used to automate this task.
+Azure pipelines are used to compile the packages and create the 'wheels' for various platforms and python versions according to the following Table:
+
++-----+-------------------+--------------------+----------------+------------------+---------------+---------------+
+|     | macOS 10.6+ intel | macOS 10.9+ x86_64 | manylinux i686 | manylinux x86_64 | Windows 32bit | Windows 64bit |
++-----+-------------------+--------------------+----------------+------------------+---------------+---------------+
+| 2.7 |         ✅        |                    |        ✅      |          ✅      |      ✅       |        ✅     |
++-----+-------------------+--------------------+----------------+------------------+---------------+---------------+
+| 3.5 |         ✅        |                    |         ✅     |          ✅      |       ✅      |       ✅      |
++-----+-------------------+--------------------+----------------+------------------+---------------+---------------+
+| 3.6 |         ✅        |                    |          ✅    |           ✅     |        ✅     |         ✅    |
++-----+-------------------+--------------------+----------------+------------------+---------------+---------------+
+| 3.7 |         ✅        |                    |           ✅   |          ✅      |         ✅    |        ✅     |
++-----+-------------------+--------------------+----------------+------------------+---------------+---------------+
+| 3.8 |                   |     ✅             |          ✅    |         ✅       |       ✅      |       ✅      |
++-----+-------------------+--------------------+----------------+------------------+---------------+---------------+
+
+The package `cibuildwheel <https://github.com/joerick/cibuildwheel>`_ is used to automate this task. All wheels are uploaded to PyPI.
 
 Install
 -------
