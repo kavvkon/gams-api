@@ -5,7 +5,7 @@ environment:
     # Note: TWINE_PASSWORD is set in Appveyor settings
 
 build_script:
-  - pip install cibuildwheel==0.10.0
+  - pip install cibuildwheel==1.0.0
   - cibuildwheel ./gdxcc --output-dir wheelhouse
   - cibuildwheel ./gamsxcc --output-dir wheelhouse
   - cibuildwheel ./optcc --output-dir wheelhouse
