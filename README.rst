@@ -47,3 +47,16 @@ GDX API (GAMS Data Exchange Object) : ``pip install gdxcc``
 GAMSx API (GAMS Execution Object):  ``pip install gamsxcc``
 
 OPT API (GAMS Option Object): ``pip install optcc``
+
+Versioning
+----------
+Versioning is quite complicated as the libraries have their own version probably based on API changes. Even on the same version there are modifications coming with each gams distribution.
+As of now they will follow the following convention:
+
+``API_version.GAMS_major.GAMS_minor``
+
+Currently, the latest versions built are:
+
+* `gdxcc`: 7.28.20
+* `optcc`: 4.28.20
+* `gamsxcc`: 1.28.20
