@@ -4,7 +4,7 @@ GAMS Python API
 .. image:: https://dev.azure.com/kavvkon/kavvkon/_apis/build/status/kavvkon.gams-api?branchName=master
     :target: https://dev.azure.com/kavvkon/kavvkon/_build/latest?definitionId=1&branchName=master
 
-This repository hosts various GAMS' Python libraries which are used to access and modify the .gdx data files, and execute GAMS within Python. The main purpose is to compile them, package them and distribute them via PyPI so that it can be installable via pip and used as a dependecy in other packages.
+This repository hosts various GAMS' Python libraries which are used to access and modify the .gdx data files, and execute GAMS within Python. The main purpose is to compile them, package them and distribute them via PyPI so that it can be installable via pip and used as a dependecy in other packages. Detailed documentation of how to use these libraries can be found in the `GAMS API documentation section. <https://www.gams.com/latest/docs/API_MAIN.html#GAMS_LLAPIS>`_
 
 **Update**: Python 3.8 wheels are included for all platforms. All builds have been moved to azure pipelines as it allows easier cross-platform maintainance.
 
