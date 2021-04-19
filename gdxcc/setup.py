@@ -3,7 +3,6 @@ from setuptools import setup, Extension, find_packages
 import codecs
 import sys
 import os
-LICENSE = 'THE GAMS FREE APIS ARE PROVIDED "AS IS" AND GAMS DISCLAIMS ALL WARRANTIES WITH REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS. IN NO EVENT SHALL GAMS BE LIABLE FOR ANY SPECIAL, DIRECT, INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS, WHETHER IN AN ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THE GAMS FREE APIS.'
 HERE = os.path.abspath(os.path.dirname(__file__))
 
 
@@ -37,12 +36,12 @@ gdxcc_module = Extension('_gdxcc',
 
 setup (name = 'gdxcc',
        description='Python library to access and modify gdx files',
-       version = '7-2492',
+       version = '7.28.20',
        ext_modules = [gdxcc_module],
        packages=find_packages(),
        include_package_data=True,
        author='GAMS Development Corp.',
-       license=LICENSE,
+       license="MIT",
        maintainer='kavvkon',
        maintainer_email='kavvkon@gmail.com'
        )
