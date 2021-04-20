@@ -25,12 +25,18 @@ jobs:
 
       - name: Build wheels GDXCC
         run: python -m cibuildwheel ./gdxcc --output-dir wheelhouse
+        env:
+          CIBW_SKIP: cp27-* cp35-*
 
       - name: Build wheels GAMSXCC
         run: python -m cibuildwheel ./gamsxcc --output-dir wheelhouse
+        env:
+          CIBW_SKIP: cp27-* cp35-*
 
       - name: Build wheels OPTCC
         run: python -m cibuildwheel ./optcc --output-dir wheelhouse
+        env:
+          CIBW_SKIP: cp27-* cp35-*
 
       - uses: actions/upload-artifact@v2
         with:
