@@ -1,12 +1,12 @@
 GAMS Python API
 ===============
 
-.. image:: https://dev.azure.com/kavvkon/kavvkon/_apis/build/status/kavvkon.gams-api?branchName=master
-    :target: https://dev.azure.com/kavvkon/kavvkon/_build/latest?definitionId=1&branchName=master
+.. image:: https://github.com/kavvkon/gams-api/actions/workflows/build_wheels.yml/badge.svg
+    :target: https://github.com/kavvkon/gams-api/actions/workflows/build_wheels.yml
 
 This repository hosts various GAMS' Python libraries which are used to access and modify the .gdx data files, and execute GAMS within Python. The main purpose is to compile them, package them and distribute them via PyPI so that it can be installable via pip and used as a dependecy in other packages. Detailed documentation of how to use these libraries can be found in the `GAMS API documentation section. <https://www.gams.com/latest/docs/API_MAIN.html#GAMS_LLAPIS>`_
 
-**Update**: Python 3.8 wheels are included for all platforms. All builds have been moved to azure pipelines as it allows easier cross-platform maintainance.
+**Update**: Python 3.9 wheels are included for all platforms. All builds have been moved to Github actions as it allows easier cross-platform maintenance.
 
 Background
 ----------
@@ -22,23 +22,14 @@ GAMS includes also the compiled C extensions (.so) but they are dependent on the
 The setup.py file has been modified to use the setuptools package which allows the distribution of binary wheels (bdist) for different python versions and platforms.
 The source (sdist) is uploaded in Pypi and should work with all platforms and python versions.
 
-Azure pipelines are used to compile the packages and create the 'wheels' for various platforms and python versions according to the following Table:
-
-+-----+-------------------+--------------------+----------------+------------------+---------------+---------------+
-|     | macOS 10.6+ intel | macOS 10.9+ x86_64 | manylinux i686 | manylinux x86_64 | Windows 32bit | Windows 64bit |
-+-----+-------------------+--------------------+----------------+------------------+---------------+---------------+
-| 2.7 |         ✅        |                    |        ✅      |          ✅      |      ✅       |        ✅     |
-+-----+-------------------+--------------------+----------------+------------------+---------------+---------------+
-| 3.5 |         ✅        |                    |         ✅     |          ✅      |       ✅      |       ✅      |
-+-----+-------------------+--------------------+----------------+------------------+---------------+---------------+
-| 3.6 |         ✅        |                    |          ✅    |           ✅     |        ✅     |         ✅    |
-+-----+-------------------+--------------------+----------------+------------------+---------------+---------------+
-| 3.7 |         ✅        |                    |           ✅   |          ✅      |         ✅    |        ✅     |
-+-----+-------------------+--------------------+----------------+------------------+---------------+---------------+
-| 3.8 |                   |     ✅             |          ✅    |         ✅       |       ✅      |       ✅      |
-+-----+-------------------+--------------------+----------------+------------------+---------------+---------------+
-
+Github actions are used to compile the packages and create the 'wheels' for various platforms and python versions.
 The package `cibuildwheel <https://github.com/joerick/cibuildwheel>`_ is used to automate this task. All wheels are uploaded to PyPI.
+Currently the following platforms are built:
+
+* *Python versions*: Cpython2.7, 3.5, 3.6, 3.7, 3.8, 3.9; PyPy 2.7 v7.3.3, PyPy 3.6 v7.3.3
+* *Platforms*: macOS Intel, macOS Apple Silicon, Windows 64bit, Windows 32bit, manylinux x86_64,	manylinux i686, manylinux aarch64, manylinux ppc64le, manylinux s390x
+
+NB: Not all combinations are applicable, for more info check cibuildwheel for more info
 
 Install
 -------
@@ -50,8 +41,8 @@ OPT API (GAMS Option Object): ``pip install optcc``
 
 Versioning
 ----------
-Versioning is quite complicated as the libraries have their own version probably based on API changes. Even on the same version there are modifications coming with each gams distribution.
-As of now they will follow the following convention:
+Versioning is quite complicated as the libraries have their own version probably based on API changes. However, every GAMS release may include modifications even if API version number remains the same.
+The following versioning scheme is selected:
 
 ``API_version.GAMS_major.GAMS_minor``
 
