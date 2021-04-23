@@ -26,10 +26,10 @@ Github actions are used to compile the packages and create the 'wheels' for vari
 The package `cibuildwheel <https://github.com/joerick/cibuildwheel>`_ is used to automate this task. All wheels are uploaded to PyPI.
 Currently the following platforms are built:
 
-* *Python versions*: Cpython2.7, 3.5, 3.6, 3.7, 3.8, 3.9; PyPy 2.7 v7.3.3, PyPy 3.6 v7.3.3
+* *Python versions*: Cpython 3.6, 3.7, 3.8, 3.9; PyPy 2.7 v7.3.3, PyPy 3.6 v7.3.3
 * *Platforms*: macOS Intel, macOS Apple Silicon, Windows 64bit, Windows 32bit, manylinux x86_64,	manylinux i686, manylinux aarch64, manylinux ppc64le, manylinux s390x
 
-NB: Not all combinations are applicable, for more info check cibuildwheel for more info
+NB: Not all combinations are applicable, for more info check cibuildwheel. Python 2.7 is no longer maintained.
 
 Install
 -------
