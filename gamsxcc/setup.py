@@ -2,7 +2,6 @@ from setuptools import setup, Extension, find_packages
 import codecs
 import sys
 import os
-LICENSE = 'THE GAMS FREE APIS ARE PROVIDED "AS IS" AND GAMS DISCLAIMS ALL WARRANTIES WITH REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS. IN NO EVENT SHALL GAMS BE LIABLE FOR ANY SPECIAL, DIRECT, INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS, WHETHER IN AN ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THE GAMS FREE APIS.'
 HERE = os.path.abspath(os.path.dirname(__file__))
 
 
@@ -29,19 +28,20 @@ if morelibs is not None:
 gamsxcc_module = Extension('_gamsxcc',
                            extra_compile_args=extra_args,
                            extra_link_args=extra_link_args,
-                           sources=['gamsxcc/C/gamsxcc_wrap.c', 'gamsxcc/C/gamsxcc.c'],
+                           sources=['gamsxcc/C/gamsxcc_wrap.c', 'gamsxcc/C/gamsxcc.c', 'gamsxcc/C/gclgms.c', 'gamsxcc/C/gcmt.c'],
                            define_macros=[('PYPREFIXGAMSX', None), ('_CRT_SECURE_NO_WARNINGS', None)],
                            include_dirs=['_gamsxcc/C']
                         )
 
 setup (name = 'gamsxcc',
        description='Python library to access GAMS Execution Object',
-       version = '1-2492',
+       version = '1.33.20',
        ext_modules = [gamsxcc_module],
        packages=find_packages(),
        include_package_data=True,
        author='GAMS Development Corp.',
-       license=LICENSE,
+       license='MIT',
        maintainer='kavvkon',
-       maintainer_email='kavvkon@gmail.com'
+       maintainer_email='kavvkon@gmail.com',
+       url='https://github.com/kavvkon/gams-api'
        )
