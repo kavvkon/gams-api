@@ -28,19 +28,20 @@ if morelibs is not None:
 optcc_module = Extension('_optcc',
                            extra_compile_args=extra_args,
                            extra_link_args=extra_link_args,
-                           sources=['optcc/C/optcc_wrap.c', 'optcc/C/optcc.c'],
+                           sources=['optcc/C/optcc_wrap.c', 'optcc/C/optcc.c', 'optcc/C/gclgms.c', 'optcc/C/gcmt.c'],
                            define_macros=[('PYPREFIXOPT', None), ('_CRT_SECURE_NO_WARNINGS', None)],
                            include_dirs=['optcc/C']
                         )
 
 setup (name = 'optcc',
        description='Python library to access GAMS Option Object',
-       version = '4.28.20',
+       version = '4.33.20',
        ext_modules = [optcc_module],
        packages=find_packages(),
        include_package_data=True,
        author='GAMS Development Corp.',
        license='MIT',
        maintainer='kavvkon',
-       maintainer_email='kavvkon@gmail.com'
+       maintainer_email='kavvkon@gmail.com',
+       url='https://github.com/kavvkon/gams-api'
        )

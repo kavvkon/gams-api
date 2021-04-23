@@ -29,19 +29,20 @@ if morelibs is not None:
 gdxcc_module = Extension('_gdxcc',
                            extra_compile_args=extra_args,
                            extra_link_args=extra_link_args,
-                           sources=['gdxcc/C/gdxcc_wrap.c', 'gdxcc/C/gdxcc.c'],
+                           sources=['gdxcc/C/gdxcc_wrap.c', 'gdxcc/C/gdxcc.c', 'gdxcc/C/gclgms.c', 'gdxcc/C/gcmt.c'],
                            define_macros=[('PYPREFIXGDX', None), ('_CRT_SECURE_NO_WARNINGS', None)],
                            include_dirs=['gdxcc/C']
                         )
 
 setup (name = 'gdxcc',
        description='Python library to access and modify gdx files',
-       version = '7.28.20',
+       version = '8.33.2',
        ext_modules = [gdxcc_module],
        packages=find_packages(),
        include_package_data=True,
        author='GAMS Development Corp.',
        license="MIT",
        maintainer='kavvkon',
-       maintainer_email='kavvkon@gmail.com'
+       maintainer_email='kavvkon@gmail.com',
+       url='https://github.com/kavvkon/gams-api'
        )

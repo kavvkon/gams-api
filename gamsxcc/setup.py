@@ -28,19 +28,20 @@ if morelibs is not None:
 gamsxcc_module = Extension('_gamsxcc',
                            extra_compile_args=extra_args,
                            extra_link_args=extra_link_args,
-                           sources=['gamsxcc/C/gamsxcc_wrap.c', 'gamsxcc/C/gamsxcc.c'],
+                           sources=['gamsxcc/C/gamsxcc_wrap.c', 'gamsxcc/C/gamsxcc.c', 'gamsxcc/C/gclgms.c', 'gamsxcc/C/gcmt.c'],
                            define_macros=[('PYPREFIXGAMSX', None), ('_CRT_SECURE_NO_WARNINGS', None)],
                            include_dirs=['_gamsxcc/C']
                         )
 
 setup (name = 'gamsxcc',
        description='Python library to access GAMS Execution Object',
-       version = '1.28.20',
+       version = '1.33.20',
        ext_modules = [gamsxcc_module],
        packages=find_packages(),
        include_package_data=True,
        author='GAMS Development Corp.',
        license='MIT',
        maintainer='kavvkon',
-       maintainer_email='kavvkon@gmail.com'
+       maintainer_email='kavvkon@gmail.com',
+       url='https://github.com/kavvkon/gams-api'
        )
