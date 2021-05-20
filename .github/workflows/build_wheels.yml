@@ -50,13 +50,19 @@ jobs:
           python-version: '3.8'
 
       - name: Build gdxcc sdist
-        run: python ./gdxcc/setup.py sdist
+        run: |
+        cd gdxcc
+        python setup.py sdist -d ../dist
 
       - name: Build optcc sdist
-        run: python ./optcc/setup.py sdist
+        run: |
+          cd optcc
+          python setup.py sdist -d ../dist
 
       - name: Build gamsxcc sdist
-        run: python ./gamsxcc/setup.py sdist
+        run: |
+          cd gamsxcc
+          python setup.py sdist -d ../dist
 
       - uses: actions/upload-artifact@v2
         with:
