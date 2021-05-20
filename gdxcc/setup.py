@@ -36,7 +36,7 @@ gdxcc_module = Extension('_gdxcc',
 
 setup (name = 'gdxcc',
        description='Python library to access and modify gdx files',
-       version = '8.33.2',
+       version = '8.33.2.post1',
        ext_modules = [gdxcc_module],
        packages=find_packages(),
        include_package_data=True,

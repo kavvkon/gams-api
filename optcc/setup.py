@@ -35,7 +35,7 @@ optcc_module = Extension('_optcc',
 
 setup (name = 'optcc',
        description='Python library to access GAMS Option Object',
-       version = '4.33.20',
+       version = '4.33.20.post1',
        ext_modules = [optcc_module],
        packages=find_packages(),
        include_package_data=True,

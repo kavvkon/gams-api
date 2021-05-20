@@ -35,7 +35,7 @@ gamsxcc_module = Extension('_gamsxcc',
 
 setup (name = 'gamsxcc',
        description='Python library to access GAMS Execution Object',
-       version = '1.33.20',
+       version = '1.33.20.post1',
        ext_modules = [gamsxcc_module],
        packages=find_packages(),
        include_package_data=True,
