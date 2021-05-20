@@ -51,8 +51,8 @@ jobs:
 
       - name: Build gdxcc sdist
         run: |
-        cd gdxcc
-        python setup.py sdist -d ../dist
+          cd gdxcc
+          python setup.py sdist -d ../dist
 
       - name: Build optcc sdist
         run: |
