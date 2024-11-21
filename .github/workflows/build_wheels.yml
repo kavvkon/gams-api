@@ -34,7 +34,7 @@ jobs:
         env:
           CIBW_SKIP: cp27-* cp35-*
 
-      - uses: actions/upload-artifact@v2
+      - uses: actions/upload-artifact@v4
         with:
           path: ./wheelhouse/*.whl
 
@@ -64,7 +64,7 @@ jobs:
           cd gamsxcc
           python setup.py sdist -d ../dist
 
-      - uses: actions/upload-artifact@v2
+      - uses: actions/upload-artifact@v4
         with:
           path: dist/*.tar.gz
 
@@ -73,7 +73,7 @@ jobs:
     needs: [build_wheels, build_sdist]
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/download-artifact@v2
+      - uses: actions/download-artifact@v4
         with:
           name: artifact
           path: dist
